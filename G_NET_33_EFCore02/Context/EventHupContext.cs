@@ -1,4 +1,5 @@
-﻿using G_NET_33_EFCore02.Entities;
+﻿using G_NET_33_EFCore02.Configurations;
+using G_NET_33_EFCore02.Entities;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,8 @@ namespace G_NET_33_EFCore02.Context
                 register.Property(p=>p.NoteToOrganizer).IsRequired(false);
 
             });
-            modelBuilder.ApplyConfiguration();
+            modelBuilder.ApplyConfiguration(new BadgeConfiguration());
+            modelBuilder.ApplyConfiguration(new EventConfigurations());
         }
 
     }
