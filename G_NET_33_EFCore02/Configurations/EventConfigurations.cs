@@ -16,10 +16,12 @@ namespace G_NET_33_EFCore02.Configurations
             builder.ToTable("Events");
             builder.HasKey(e => e.Id);
             builder.Property(e => e.Id).ValueGeneratedOnAdd();
-            builder.Property(e => e.StartDate).IsRequired();
-            builder.Property(e => e.EndDate).IsRequired();
-            builder.Property(e => e.Description).IsRequired(false);
-            builder.Property(e=>e.MaxAttendees).IsRequired();   
+            builder.Property(e => e.StartDate).IsRequired().HasMaxLength(100).HasDefaultValueSql("GetDate()");
+            builder.Property(e => e.EndDate).IsRequired().HasMaxLength(100).HasDefaultValueSql("GetDate()");
+            builder.Property(e => e.Description).IsRequired(false).HasMaxLength(500);
+            builder.Property(e=>e.MaxAttendees).IsRequired().HasDefaultValue(1);  
+            builder.Property(e=>e.Title).IsRequired().HasColumnName("Event Title").HasMaxLength(100); 
+
 
         }
     }
