@@ -53,6 +53,7 @@ namespace G_NET_33_EFCore02.Context
                 register.Property(p=>p.NoteToOrganizer).IsRequired(false);
 
             });
+            modelBuilder.ApplyConfiguration();
         }
 
     }

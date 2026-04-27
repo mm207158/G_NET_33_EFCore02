@@ -12,7 +12,7 @@
             public int Id { get; set; }
 
             public string? BadgeNumber { get; set; }
-            public DateOnly IssuedOn { get; set; }
+            public DateTime IssuedOn { get; set; }
             public BadgeTier Tier { get; set; } = BadgeTier.Standard;
             public int AttendeeId { get; set; }
             public Attendee Attendee { get; set; } = null!;
